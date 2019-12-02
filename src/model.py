@@ -197,29 +197,8 @@ class Job:
 
 
     def save_clips(self, timestamps):
-<<<<<<< HEAD
-        #with Pool() as pool:
-        #    v = self.video_path
-        #    args_list = [(t, v) for t in timestamps]
-        #    map_results = pool.starmap(Worker().make_clip, args_list)
-
-        #return map_results
-        # multiprocessing is running into issues with shared resources
-        v = self.video_path
-        #print(self.video_path)
-        #if(len(timestamps) == 0):
-        #    print('this is empty our api is bad')
-        #    print('I wasted a lot of time')
-
-        list_of_clips = []
-        for t in timestamps:
-            list_of_clips.append(Worker().make_clip(t,v))
-        #print('save_clips is called')
-        return list_of_clips
-=======
         return len(timestamps) and len(self.multi_map(
-            Worker(self.video_path).make_clip, timestamps))
->>>>>>> 9c484581f1024a3dd231d60d937b0ec6437b6578
+        Worker(self.video_path).make_clip, timestamps))
 
 
     def kill(self):

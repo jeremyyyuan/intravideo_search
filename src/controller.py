@@ -11,14 +11,9 @@ class Worker:
 
     "Controller - data requests"
 
-<<<<<<< HEAD
-    def __init__(self):
-        #print('constructor')
-        pass
-=======
+
     def __init__(self, video_path=None):
         self.video_path = video_path
->>>>>>> 9c484581f1024a3dd231d60d937b0ec6437b6578
 
     def classify_img(self, img):
         # input: Image object to classify
@@ -105,11 +100,6 @@ class Worker:
             raise ValueError("Negative time in the timestamp. That can't be right.")
 
         # Make that subclip.
-<<<<<<< HEAD
-        clip = VideoFileClip(path).subclip(timestamp[0], timestamp[1])
-        #print(clipPath)
-        clip.write_videofile(clipPath, codec='libx264', temp_audiofile='temp-audio.m4a', remove_temp=True, audio_codec='aac')
-=======
         clip = VideoFileClip(path).subclip(start, end)
 
         # due to multiprocessing, we must give unique names to temp audio files
@@ -122,7 +112,6 @@ class Worker:
             remove_temp=True,
             audio_codec='aac'
         )
->>>>>>> 9c484581f1024a3dd231d60d937b0ec6437b6578
 
         # Return the path to the newly minted clip.
         return clipPath
